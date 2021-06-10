@@ -11,16 +11,27 @@
 # synth2 = {brand: "Korg", polyphony:  "Mono", model: "MS-20"}
 # synth3 = {brand: "Novation", polyphony: "Poly", model: "Peak"}
 
+
+
 class Synth
 
   attr_reader :brand, :model, :polyphony, :price
   attr_writer :price
 
-  def initialize(input_brand,input_model,input_polyphony,input_price)
-    @brand = input_brand
-    @model = input_model
-    @polyphony = input_polyphony
-    @price = input_price
+  # def initialize(input_brand,input_model,input_polyphony,input_price)
+  #   @brand = input_brand
+  #   @model = input_model
+  #   @polyphony = input_polyphony
+  #   @price = input_price
+  # end
+
+  # Rewrite your store items using a class with a single options hash in the initialize method.
+
+  def initialize(input_options)
+    @brand = input_options[:brand]
+    @model = input_options[:model]
+    @polyphony = input_options[:polyphony]
+    @price = input_options[:price]
   end
 
   # def brand
@@ -49,5 +60,6 @@ class Synth
 
 end
 
-  synth1 = Synth.new("Roland","Juno-160","polyphonic","2600")
+  # synth1 = Synth.new("Roland","Juno-160","polyphonic","2600")
+  synth1 = Synth.new(brand: "Roland", model: "Juno-160", polyphony: "polyphonic", price: "2600")
   synth1.print_info
